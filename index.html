@@ -79,7 +79,29 @@
   <div class="exercise-row"><span class="exercise-name">Dumbbell Bicep Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e22" oninput="save()"><span class="weight-label">lb</span></div></div>
   <div class="exercise-row"><span class="exercise-name">Dumbbell Skull Crushers</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e23" oninput="save()"><span class="weight-label">lb</span></div></div>
 </div>
-<div class="tips-card">
+<div class="day-card">
+  <div class="day-header">
+    <span class="day-title">Abs — End of Every Session</span>
+    <span class="day-tag">3x/week</span>
+  </div>
+  <div class="exercise-row">
+    <span class="exercise-name">Cable Crunches</span>
+    <span class="sets-badge">3 × 15</span>
+    <div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e24" oninput="save()"><span class="weight-label">lb</span></div>
+  </div>
+  <div class="exercise-row">
+    <span class="exercise-name">Hanging Knee Raises</span>
+    <span class="sets-badge">3 × 12</span>
+    <div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e25" oninput="save()"><span class="weight-label">lb</span></div>
+  </div>
+  <div class="exercise-row">
+    <span class="exercise-name">Plank</span>
+    <span class="sets-badge">3 × 45 sec</span>
+    <div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e26" oninput="save()"><span class="weight-label">sec</span></div>
+  </div>
+</div>
+ 
+ <div class="tips-card"> 
   <div class="tips-title">🔑 Key Rules</div>
   <div class="tip"><span class="tip-icon">⏱</span><span>Rest 60–90 seconds between sets</span></div>
   <div class="tip"><span class="tip-icon">📈</span><span>Increase weight slightly every 1–2 weeks</span></div>
@@ -89,7 +111,7 @@
 <button class="save-btn" onclick="saveManual()">SAVE WEIGHTS</button>
 <p class="save-notice">Weights auto-save as you type · stored in your browser</p>
 <script>
-  const IDS = Array.from({length: 23}, (_, i) => `e${i+1}`);
+  const IDS = Array.from({length: 26}, (_, i) => `e${i+1}`);
   function save() { const data = {}; IDS.forEach(id => { const el = document.getElementById(id); if (el) data[id] = el.value; }); try { localStorage.setItem('gymWeights', JSON.stringify(data)); } catch(e) {} }
   function load() { try { const data = JSON.parse(localStorage.getItem('gymWeights') || '{}'); IDS.forEach(id => { const el = document.getElementById(id); if (el && data[id] !== undefined) el.value = data[id]; }); } catch(e) {} }
   function saveManual() { save(); const btn = document.querySelector('.save-btn'); btn.textContent = '✓ SAVED!'; setTimeout(() => btn.textContent = 'SAVE WEIGHTS', 1500); }
