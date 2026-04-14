@@ -4,9 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Gym</title>
-
 <link rel="apple-touch-icon" href="https://fav.farm/🏋️"/>
-
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
   * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -37,13 +35,44 @@
   .save-btn { display: block; width: 100%; margin-top: 24px; background: #e63946; color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px; border: none; border-radius: 12px; padding: 16px; cursor: pointer; transition: background 0.2s, transform 0.1s; }
   .save-btn:active { transform: scale(0.98); background: #c1121f; }
   .save-notice { text-align: center; font-size: 0.75rem; color: #555; margin-top: 10px; letter-spacing: 0.5px; }
+  .log-btn { display: block; width: 100%; margin-top: 12px; background: #2a9d8f; color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px; border: none; border-radius: 12px; padding: 16px; cursor: pointer; transition: background 0.2s, transform 0.1s; }
+  .log-btn:active { transform: scale(0.98); background: #21867a; }
+
+  /* Calendar */
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 2px; color: #fff; margin: 32px 0 16px; }
+  .calendar-card { background: #161616; border-radius: 14px; padding: 18px; border: 1px solid #222; margin-bottom: 20px; }
+  .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
+  .cal-month { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 1px; color: #fff; }
+  .cal-nav { background: #1e1e1e; border: 1px solid #333; color: #fff; border-radius: 8px; padding: 4px 12px; cursor: pointer; font-size: 1rem; }
+  .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
+  .cal-day-label { text-align: center; font-size: 0.7rem; color: #555; padding: 4px 0; font-weight: 600; }
+  .cal-day { aspect-ratio: 1; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; background: #1a1a1a; cursor: pointer; transition: all 0.15s; position: relative; }
+  .cal-day.today { border: 1px solid #e63946; color: #fff; }
+  .cal-day.worked-out { background: #e63946; color: #fff; font-weight: 700; }
+  .cal-day.empty { background: transparent; cursor: default; }
+  .cal-day:hover:not(.empty) { opacity: 0.8; }
+
+  /* Weekly Report */
+  .report-card { background: #161616; border-radius: 14px; padding: 18px; border: 1px solid #222; margin-bottom: 20px; }
+  .report-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #1e1e1e; font-size: 0.88rem; }
+  .report-row:last-child { border-bottom: none; }
+  .report-label { color: #888; }
+  .report-value { color: #fff; font-weight: 600; }
+  .report-value.highlight { color: #e63946; }
+  .streak-bar { display: flex; gap: 6px; margin-top: 12px; }
+  .streak-dot { width: 32px; height: 32px; border-radius: 8px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #555; flex: 1; }
+  .streak-dot.active { background: #e63946; color: #fff; font-weight: 700; }
+  .streak-dot.label { background: transparent; color: #555; font-size: 0.65rem; }
 </style>
 </head>
 <body>
+
 <header>
   <h1>MY <span>GYM</span> PLAN</h1>
   <p class="subtitle">4 Days/Week · Muscle Building · ~1 Hour</p>
 </header>
+
+<!-- DAY 1 -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Day 1 — Chest + Triceps</span><span class="day-tag">Monday</span></div>
   <div class="exercise-row"><span class="exercise-name">Dumbbell Flat Bench Press</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e1" oninput="save()"><span class="weight-label">lb</span></div></div>
@@ -53,6 +82,8 @@
   <div class="exercise-row"><span class="exercise-name">Cable Tricep Pushdown</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e5" oninput="save()"><span class="weight-label">lb</span></div></div>
   <div class="exercise-row"><span class="exercise-name">Overhead Cable Tricep Extension</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e6" oninput="save()"><span class="weight-label">lb</span></div></div>
 </div>
+
+<!-- DAY 2 -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Day 2 — Back + Biceps</span><span class="day-tag">Tuesday</span></div>
   <div class="exercise-row"><span class="exercise-name">Lat Pulldown</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e7" oninput="save()"><span class="weight-label">lb</span></div></div>
@@ -62,6 +93,8 @@
   <div class="exercise-row"><span class="exercise-name">Dumbbell Bicep Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e11" oninput="save()"><span class="weight-label">lb</span></div></div>
   <div class="exercise-row"><span class="exercise-name">Cable Hammer Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e12" oninput="save()"><span class="weight-label">lb</span></div></div>
 </div>
+
+<!-- DAY 3 -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Day 3 — Legs</span><span class="day-tag">Thursday</span></div>
   <div class="exercise-row"><span class="exercise-name">Dumbbell Romanian Deadlift</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e13" oninput="save()"><span class="weight-label">lb</span></div></div>
@@ -70,6 +103,8 @@
   <div class="exercise-row"><span class="exercise-name">Dumbbell Walking Lunges</span><span class="sets-badge">3 × 12 each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e16" oninput="save()"><span class="weight-label">lb</span></div></div>
   <div class="exercise-row"><span class="exercise-name">Stair Climber (cooldown)</span><span class="sets-badge">10 min</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e17" oninput="save()"><span class="weight-label">lvl</span></div></div>
 </div>
+
+<!-- DAY 4 -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Day 4 — Shoulders + Arms</span><span class="day-tag">Saturday</span></div>
   <div class="exercise-row"><span class="exercise-name">Dumbbell Shoulder Press</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e18" oninput="save()"><span class="weight-label">lb</span></div></div>
@@ -79,48 +114,170 @@
   <div class="exercise-row"><span class="exercise-name">Dumbbell Bicep Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e22" oninput="save()"><span class="weight-label">lb</span></div></div>
   <div class="exercise-row"><span class="exercise-name">Dumbbell Skull Crushers</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e23" oninput="save()"><span class="weight-label">lb</span></div></div>
 </div>
+
+<!-- ABS -->
 <div class="day-card">
-  <div class="day-header">
-    <span class="day-title">Abs — End of Every Session</span>
-    <span class="day-tag">3x/week</span>
-  </div>
-  <div class="exercise-row">
-    <span class="exercise-name">Cable Crunches</span>
-    <span class="sets-badge">3 × 15</span>
-    <div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e24" oninput="save()"><span class="weight-label">lb</span></div>
-  </div>
-  <div class="exercise-row">
-    <span class="exercise-name">Hanging Knee Raises</span>
-    <span class="sets-badge">3 × 12</span>
-    <div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e25" oninput="save()"><span class="weight-label">lb</span></div>
-  </div>
-  <div class="exercise-row">
-    <span class="exercise-name">Plank</span>
-    <span class="sets-badge">3 × 45 sec</span>
-    <div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e26" oninput="save()"><span class="weight-label">sec</span></div>
-  </div>
+  <div class="day-header"><span class="day-title">Abs — End of Every Session</span><span class="day-tag">3x/week</span></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Crunches</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e24" oninput="save()"><span class="weight-label">lb</span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Hanging Knee Raises</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e25" oninput="save()"><span class="weight-label">lb</span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Plank</span><span class="sets-badge">3 × 45 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e26" oninput="save()"><span class="weight-label">sec</span></div></div>
 </div>
- 
- <div class="tips-card"> 
+
+<!-- TIPS -->
+<div class="tips-card">
   <div class="tips-title">🔑 Key Rules</div>
   <div class="tip"><span class="tip-icon">⏱</span><span>Rest 60–90 seconds between sets</span></div>
   <div class="tip"><span class="tip-icon">📈</span><span>Increase weight slightly every 1–2 weeks</span></div>
-  <div class="tip"><span class="tip-icon">😴</span><span>Sleep is when you grow don't skip it</span></div>
+  <div class="tip"><span class="tip-icon">😴</span><span>Sleep is when you grow — don't skip it</span></div>
 </div>
+
 <div class="tips-card" style="border-left-color: #2a9d8f; margin-top: 18px;">
   <div class="tips-title" style="color: #2a9d8f;">💊 Supplements</div>
   <div class="tip"><span class="tip-icon">🥛</span><span><strong>Whey Protein:</strong> Take within 30 min after workout. On rest days take anytime to hit protein goals. Mix with water or milk.</span></div>
-  <div class="tip"><span class="tip-icon">⚡</span><span><strong>Creatine:</strong> Take 5g every single day, even rest days. Mix into your whey shake. Drink 2-3 liters of water daily.</span></div>
+  <div class="tip"><span class="tip-icon">⚡</span><span><strong>Creatine:</strong> Take 5g every single day, even rest days. Mix into your whey shake. Drink 2–3 liters of water daily.</span></div>
   <div class="tip"><span class="tip-icon">🎯</span><span><strong>Daily Protein Goal:</strong> 130g per day. You weigh ~62kg (137 lbs).</span></div>
 </div>
- <button class="save-btn" onclick="saveManual()">SAVE WEIGHTS</button>
+
+<button class="save-btn" onclick="saveManual()">SAVE WEIGHTS</button>
+<button class="log-btn" onclick="logWorkout()">✅ LOG TODAY'S WORKOUT</button>
 <p class="save-notice">Weights auto-save as you type · stored in your browser</p>
+
+<!-- CALENDAR -->
+<div class="section-title">📅 Workout Calendar</div>
+<div class="calendar-card">
+  <div class="cal-header">
+    <button class="cal-nav" onclick="changeMonth(-1)">‹</button>
+    <span class="cal-month" id="calMonth"></span>
+    <button class="cal-nav" onclick="changeMonth(1)">›</button>
+  </div>
+  <div class="cal-grid" id="calGrid"></div>
+</div>
+
+<!-- WEEKLY REPORT -->
+<div class="section-title">📊 Weekly Report</div>
+<div class="report-card">
+  <div class="report-row"><span class="report-label">Workouts this week</span><span class="report-value highlight" id="rWorkouts">0</span></div>
+  <div class="report-row"><span class="report-label">Total workouts logged</span><span class="report-value" id="rTotal">0</span></div>
+  <div class="report-row"><span class="report-label">Current streak</span><span class="report-value highlight" id="rStreak">0 days</span></div>
+  <div class="report-row"><span class="report-label">This week</span></div>
+  <div class="streak-bar" id="rWeekBar"></div>
+</div>
+
 <script>
   const IDS = Array.from({length: 26}, (_, i) => `e${i+1}`);
-  function save() { const data = {}; IDS.forEach(id => { const el = document.getElementById(id); if (el) data[id] = el.value; }); try { localStorage.setItem('gymWeights', JSON.stringify(data)); } catch(e) {} }
-  function load() { try { const data = JSON.parse(localStorage.getItem('gymWeights') || '{}'); IDS.forEach(id => { const el = document.getElementById(id); if (el && data[id] !== undefined) el.value = data[id]; }); } catch(e) {} }
-  function saveManual() { save(); const btn = document.querySelector('.save-btn'); btn.textContent = '✓ SAVED!'; setTimeout(() => btn.textContent = 'SAVE WEIGHTS', 1500); }
+  let currentMonth = new Date().getMonth();
+  let currentYear = new Date().getFullYear();
+
+  function save() {
+    const data = {};
+    IDS.forEach(id => { const el = document.getElementById(id); if (el) data[id] = el.value; });
+    try { localStorage.setItem('gymWeights', JSON.stringify(data)); } catch(e) {}
+  }
+
+  function load() {
+    try {
+      const data = JSON.parse(localStorage.getItem('gymWeights') || '{}');
+      IDS.forEach(id => { const el = document.getElementById(id); if (el && data[id] !== undefined) el.value = data[id]; });
+    } catch(e) {}
+  }
+
+  function saveManual() {
+    save();
+    const btn = document.querySelector('.save-btn');
+    btn.textContent = '✓ SAVED!';
+    setTimeout(() => btn.textContent = 'SAVE WEIGHTS', 1500);
+  }
+
+  function getWorkoutDays() {
+    try { return JSON.parse(localStorage.getItem('workoutDays') || '[]'); } catch(e) { return []; }
+  }
+
+  function logWorkout() {
+    const today = new Date().toISOString().split('T')[0];
+    const days = getWorkoutDays();
+    if (!days.includes(today)) {
+      days.push(today);
+      localStorage.setItem('workoutDays', JSON.stringify(days));
+    }
+    const btn = document.querySelector('.log-btn');
+    btn.textContent = '✅ LOGGED!';
+    setTimeout(() => btn.textContent = '✅ LOG TODAY\'S WORKOUT', 1500);
+    renderCalendar();
+    renderReport();
+  }
+
+  function renderCalendar() {
+    const days = getWorkoutDays();
+    const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
+    document.getElementById('calMonth').textContent = `${months[currentMonth]} ${currentYear}`;
+    const grid = document.getElementById('calGrid');
+    grid.innerHTML = '';
+    ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(d => {
+      const el = document.createElement('div');
+      el.className = 'cal-day-label';
+      el.textContent = d;
+      grid.appendChild(el);
+    });
+    const firstDay = new Date(currentYear, currentMonth, 1).getDay();
+    const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
+    const today = new Date().toISOString().split('T')[0];
+    for (let i = 0; i < firstDay; i++) {
+      const el = document.createElement('div');
+      el.className = 'cal-day empty';
+      grid.appendChild(el);
+    }
+    for (let d = 1; d <= daysInMonth; d++) {
+      const el = document.createElement('div');
+      const dateStr = `${currentYear}-${String(currentMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
+      el.className = 'cal-day' + (days.includes(dateStr) ? ' worked-out' : '') + (dateStr === today ? ' today' : '');
+      el.textContent = d;
+      grid.appendChild(el);
+    }
+  }
+
+  function changeMonth(dir) {
+    currentMonth += dir;
+    if (currentMonth > 11) { currentMonth = 0; currentYear++; }
+    if (currentMonth < 0) { currentMonth = 11; currentYear--; }
+    renderCalendar();
+  }
+
+  function renderReport() {
+    const days = getWorkoutDays();
+    const today = new Date();
+    const weekStart = new Date(today);
+    weekStart.setDate(today.getDate() - today.getDay());
+    let weekCount = 0;
+    const weekDays = ['Su','Mo','Tu','We','Th','Fr','Sa'];
+    const barEl = document.getElementById('rWeekBar');
+    barEl.innerHTML = '';
+    for (let i = 0; i < 7; i++) {
+      const d = new Date(weekStart);
+      d.setDate(weekStart.getDate() + i);
+      const dateStr = d.toISOString().split('T')[0];
+      const worked = days.includes(dateStr);
+      if (worked) weekCount++;
+      const dot = document.createElement('div');
+      dot.className = 'streak-dot' + (worked ? ' active' : '');
+      dot.textContent = weekDays[i];
+      barEl.appendChild(dot);
+    }
+    document.getElementById('rWorkouts').textContent = weekCount;
+    document.getElementById('rTotal').textContent = days.length;
+    let streak = 0;
+    const sorted = [...days].sort().reverse();
+    let check = new Date();
+    for (let i = 0; i < 60; i++) {
+      const dateStr = check.toISOString().split('T')[0];
+      if (sorted.includes(dateStr)) { streak++; } else if (i > 0) { break; }
+      check.setDate(check.getDate() - 1);
+    }
+    document.getElementById('rStreak').textContent = `${streak} day${streak !== 1 ? 's' : ''}`;
+  }
+
   load();
+  renderCalendar();
+  renderReport();
 </script>
 </body>
 </html>
