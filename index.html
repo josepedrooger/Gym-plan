@@ -22,11 +22,13 @@
   .exercise-row:hover { background: #1a1a1a; }
   .exercise-name { font-size: 0.88rem; color: #ddd; font-weight: 500; }
   .sets-badge { color: #e63946; font-weight: 700; font-size: 0.8rem; white-space: nowrap; background: #1e1e1e; padding: 4px 10px; border-radius: 8px; border: 1px solid #2a2a2a; }
-  .weight-input-wrap { display: flex; align-items: center; gap: 5px; }
+  .weight-input-wrap { display: flex; align-items: center; gap: 5px; flex-direction: column; align-items: flex-end; }
   .weight-input { width: 64px; background: #111; border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 0.82rem; font-family: 'DM Sans', sans-serif; padding: 5px 8px; text-align: center; outline: none; transition: border-color 0.2s; }
   .weight-input:focus { border-color: #e63946; }
   .weight-input::placeholder { color: #444; }
+  .weight-input.pr { border-color: #f4a261; background: #1a1000; }
   .weight-label { font-size: 0.72rem; color: #555; min-width: 16px; }
+  .pr-badge { font-size: 0.6rem; color: #f4a261; font-weight: 700; letter-spacing: 0.5px; }
   .tips-card { background: #161616; border: 1px solid #222; border-left: 3px solid #f4a261; border-radius: 14px; padding: 18px; margin-top: 8px; }
   .tips-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1.5px; color: #f4a261; margin-bottom: 12px; }
   .tip { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1e1e1e; font-size: 0.85rem; color: #bbb; align-items: flex-start; }
@@ -34,25 +36,37 @@
   .tip-icon { font-size: 0.95rem; flex-shrink: 0; margin-top: 1px; }
   .save-btn { display: block; width: 100%; margin-top: 24px; background: #e63946; color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px; border: none; border-radius: 12px; padding: 16px; cursor: pointer; transition: background 0.2s, transform 0.1s; }
   .save-btn:active { transform: scale(0.98); background: #c1121f; }
-  .save-notice { text-align: center; font-size: 0.75rem; color: #555; margin-top: 10px; letter-spacing: 0.5px; }
   .log-btn { display: block; width: 100%; margin-top: 12px; background: #2a9d8f; color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 2px; border: none; border-radius: 12px; padding: 16px; cursor: pointer; transition: background 0.2s, transform 0.1s; }
   .log-btn:active { transform: scale(0.98); background: #21867a; }
-
-  /* Calendar */
+  .save-notice { text-align: center; font-size: 0.75rem; color: #555; margin-top: 10px; letter-spacing: 0.5px; }
   .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 2px; color: #fff; margin: 32px 0 16px; }
+
+  /* REST TIMER */
+  .timer-card { background: #161616; border-radius: 14px; padding: 20px 18px; border: 1px solid #222; margin-bottom: 20px; text-align: center; }
+  .timer-display { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: #fff; letter-spacing: 4px; line-height: 1; margin: 12px 0; }
+  .timer-display.running { color: #e63946; }
+  .timer-display.done { color: #2a9d8f; }
+  .timer-btns { display: flex; gap: 10px; justify-content: center; margin-top: 12px; }
+  .timer-btn { background: #1e1e1e; border: 1px solid #333; color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; letter-spacing: 1px; padding: 10px 18px; border-radius: 10px; cursor: pointer; transition: background 0.15s; }
+  .timer-btn.active { background: #e63946; border-color: #e63946; }
+  .timer-btn:hover { background: #2a2a2a; }
+  .timer-presets { display: flex; gap: 8px; justify-content: center; margin-bottom: 8px; }
+  .preset-btn { background: #1a1a1a; border: 1px solid #2a2a2a; color: #888; font-size: 0.78rem; padding: 6px 14px; border-radius: 20px; cursor: pointer; transition: all 0.15s; }
+  .preset-btn.selected { background: #e63946; border-color: #e63946; color: #fff; }
+
+  /* CALENDAR */
   .calendar-card { background: #161616; border-radius: 14px; padding: 18px; border: 1px solid #222; margin-bottom: 20px; }
   .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
   .cal-month { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 1px; color: #fff; }
   .cal-nav { background: #1e1e1e; border: 1px solid #333; color: #fff; border-radius: 8px; padding: 4px 12px; cursor: pointer; font-size: 1rem; }
   .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
   .cal-day-label { text-align: center; font-size: 0.7rem; color: #555; padding: 4px 0; font-weight: 600; }
-  .cal-day { aspect-ratio: 1; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; background: #1a1a1a; cursor: pointer; transition: all 0.15s; position: relative; }
+  .cal-day { aspect-ratio: 1; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; background: #1a1a1a; cursor: pointer; transition: all 0.15s; }
   .cal-day.today { border: 1px solid #e63946; color: #fff; }
   .cal-day.worked-out { background: #e63946; color: #fff; font-weight: 700; }
   .cal-day.empty { background: transparent; cursor: default; }
-  .cal-day:hover:not(.empty) { opacity: 0.8; }
 
-  /* Weekly Report */
+  /* WEEKLY REPORT */
   .report-card { background: #161616; border-radius: 14px; padding: 18px; border: 1px solid #222; margin-bottom: 20px; }
   .report-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #1e1e1e; font-size: 0.88rem; }
   .report-row:last-child { border-bottom: none; }
@@ -62,7 +76,27 @@
   .streak-bar { display: flex; gap: 6px; margin-top: 12px; }
   .streak-dot { width: 32px; height: 32px; border-radius: 8px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #555; flex: 1; }
   .streak-dot.active { background: #e63946; color: #fff; font-weight: 700; }
-  .streak-dot.label { background: transparent; color: #555; font-size: 0.65rem; }
+
+  /* BODY WEIGHT */
+  .bw-card { background: #161616; border-radius: 14px; padding: 18px; border: 1px solid #222; margin-bottom: 20px; }
+  .bw-input-row { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; }
+  .bw-input { flex: 1; background: #111; border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; padding: 10px 14px; outline: none; transition: border-color 0.2s; }
+  .bw-input:focus { border-color: #e63946; }
+  .bw-log-btn { background: #e63946; color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 0.95rem; letter-spacing: 1px; border: none; border-radius: 8px; padding: 10px 18px; cursor: pointer; white-space: nowrap; }
+  .bw-list { list-style: none; }
+  .bw-item { display: flex; justify-content: space-between; padding: 8px 0; border-bottom: 1px solid #1e1e1e; font-size: 0.85rem; }
+  .bw-item:last-child { border-bottom: none; }
+  .bw-date { color: #666; }
+  .bw-val { color: #fff; font-weight: 600; }
+  .bw-change.up { color: #e63946; }
+  .bw-change.down { color: #2a9d8f; }
+
+  /* PHOTO REMINDER */
+  .photo-card { background: #161616; border-radius: 14px; padding: 18px; border: 1px solid #222; margin-bottom: 20px; text-align: center; }
+  .photo-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1.5px; color: #f4a261; margin-bottom: 8px; }
+  .photo-msg { font-size: 0.85rem; color: #bbb; margin-bottom: 14px; line-height: 1.5; }
+  .photo-btn { background: #f4a261; color: #000; font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 1.5px; border: none; border-radius: 10px; padding: 12px 24px; cursor: pointer; }
+  .photo-done { font-size: 0.78rem; color: #555; margin-top: 8px; }
 </style>
 </head>
 <body>
@@ -75,52 +109,52 @@
 <!-- DAY 1 -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Day 1 — Chest + Triceps</span><span class="day-tag">Monday</span></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Flat Bench Press</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e1" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Incline Press</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e2" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Chest Fly</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e3" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Machine Chest Press</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e4" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Tricep Pushdown</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e5" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Overhead Cable Tricep Extension</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e6" oninput="save()"><span class="weight-label">lb</span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Flat Bench Press</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e1" oninput="checkPR(this,'e1')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e1"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Incline Press</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e2" oninput="checkPR(this,'e2')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e2"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Chest Fly</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e3" oninput="checkPR(this,'e3')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e3"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Machine Chest Press</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e4" oninput="checkPR(this,'e4')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e4"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Tricep Pushdown</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e5" oninput="checkPR(this,'e5')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e5"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Overhead Cable Tricep Extension</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e6" oninput="checkPR(this,'e6')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e6"></span></div></div>
 </div>
 
 <!-- DAY 2 -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Day 2 — Back + Biceps</span><span class="day-tag">Tuesday</span></div>
-  <div class="exercise-row"><span class="exercise-name">Lat Pulldown</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e7" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Seated Cable Row</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e8" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Bent-Over Row</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e9" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Face Pulls</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e10" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Bicep Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e11" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Hammer Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e12" oninput="save()"><span class="weight-label">lb</span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Lat Pulldown</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e7" oninput="checkPR(this,'e7')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e7"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Seated Cable Row</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e8" oninput="checkPR(this,'e8')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e8"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Bent-Over Row</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e9" oninput="checkPR(this,'e9')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e9"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Face Pulls</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e10" oninput="checkPR(this,'e10')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e10"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Bicep Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e11" oninput="checkPR(this,'e11')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e11"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Hammer Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e12" oninput="checkPR(this,'e12')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e12"></span></div></div>
 </div>
 
 <!-- DAY 3 -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Day 3 — Legs</span><span class="day-tag">Thursday</span></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Romanian Deadlift</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e13" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Goblet Squat</span><span class="sets-badge">4 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e14" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Step-Ups</span><span class="sets-badge">4 × 12 each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e15" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Walking Lunges</span><span class="sets-badge">3 × 12 each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e16" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Stair Climber (cooldown)</span><span class="sets-badge">10 min</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e17" oninput="save()"><span class="weight-label">lvl</span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Romanian Deadlift</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e13" oninput="checkPR(this,'e13')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e13"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Goblet Squat</span><span class="sets-badge">4 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e14" oninput="checkPR(this,'e14')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e14"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Step-Ups</span><span class="sets-badge">4 × 12 each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e15" oninput="checkPR(this,'e15')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e15"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Walking Lunges</span><span class="sets-badge">3 × 12 each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e16" oninput="checkPR(this,'e16')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e16"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Stair Climber (cooldown)</span><span class="sets-badge">10 min</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e17" oninput="checkPR(this,'e17')"><span class="weight-label">lvl</span><span class="pr-badge" id="pr_e17"></span></div></div>
 </div>
 
 <!-- DAY 4 -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Day 4 — Shoulders + Arms</span><span class="day-tag">Saturday</span></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Shoulder Press</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e18" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Lateral Raises</span><span class="sets-badge">4 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e19" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Front Raises</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e20" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Rear Delt Fly</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e21" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Bicep Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e22" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Skull Crushers</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e23" oninput="save()"><span class="weight-label">lb</span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Shoulder Press</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e18" oninput="checkPR(this,'e18')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e18"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Lateral Raises</span><span class="sets-badge">4 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e19" oninput="checkPR(this,'e19')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e19"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Front Raises</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e20" oninput="checkPR(this,'e20')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e20"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Rear Delt Fly</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e21" oninput="checkPR(this,'e21')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e21"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Bicep Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e22" oninput="checkPR(this,'e22')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e22"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Skull Crushers</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e23" oninput="checkPR(this,'e23')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e23"></span></div></div>
 </div>
 
 <!-- ABS -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Abs — End of Every Session</span><span class="day-tag">3x/week</span></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Crunches</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e24" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Hanging Knee Raises</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e25" oninput="save()"><span class="weight-label">lb</span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Plank</span><span class="sets-badge">3 × 45 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e26" oninput="save()"><span class="weight-label">sec</span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Crunches</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e24" oninput="checkPR(this,'e24')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e24"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Hanging Knee Raises</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e25" oninput="checkPR(this,'e25')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e25"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Plank</span><span class="sets-badge">3 × 45 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e26" oninput="checkPR(this,'e26')"><span class="weight-label">sec</span><span class="pr-badge" id="pr_e26"></span></div></div>
 </div>
 
 <!-- TIPS -->
@@ -141,6 +175,22 @@
 <button class="save-btn" onclick="saveManual()">SAVE WEIGHTS</button>
 <button class="log-btn" onclick="logWorkout()">✅ LOG TODAY'S WORKOUT</button>
 <p class="save-notice">Weights auto-save as you type · stored in your browser</p>
+
+<!-- REST TIMER -->
+<div class="section-title">⏱ Rest Timer</div>
+<div class="timer-card">
+  <div class="timer-presets">
+    <button class="preset-btn selected" onclick="setPreset(60)">60s</button>
+    <button class="preset-btn" onclick="setPreset(75)">75s</button>
+    <button class="preset-btn" onclick="setPreset(90)">90s</button>
+    <button class="preset-btn" onclick="setPreset(120)">2min</button>
+  </div>
+  <div class="timer-display" id="timerDisplay">01:00</div>
+  <div class="timer-btns">
+    <button class="timer-btn active" id="startStopBtn" onclick="startStop()">START</button>
+    <button class="timer-btn" onclick="resetTimer()">RESET</button>
+  </div>
+</div>
 
 <!-- CALENDAR -->
 <div class="section-title">📅 Workout Calendar</div>
@@ -163,10 +213,53 @@
   <div class="streak-bar" id="rWeekBar"></div>
 </div>
 
+<!-- BODY WEIGHT -->
+<div class="section-title">⚖️ Body Weight Tracker</div>
+<div class="bw-card">
+  <div class="bw-input-row">
+    <input class="bw-input" type="number" placeholder="Enter weight (lb)" id="bwInput" step="0.1">
+    <button class="bw-log-btn" onclick="logWeight()">LOG</button>
+  </div>
+  <ul class="bw-list" id="bwList"></ul>
+</div>
+
+<!-- PHOTO REMINDER -->
+<div class="section-title">📸 Progress Photo</div>
+<div class="photo-card">
+  <div class="photo-title">Monthly Photo Reminder</div>
+  <div class="photo-msg" id="photoMsg">Take a progress photo every month to see how far you've come. Consistency is key!</div>
+  <button class="photo-btn" onclick="markPhotoTaken()">📸 MARK PHOTO TAKEN</button>
+  <div class="photo-done" id="photoDone"></div>
+</div>
+
 <script>
   const IDS = Array.from({length: 26}, (_, i) => `e${i+1}`);
   let currentMonth = new Date().getMonth();
   let currentYear = new Date().getFullYear();
+  let timerInterval = null;
+  let timerSeconds = 60;
+  let timerRunning = false;
+  let selectedPreset = 60;
+
+  // WEIGHTS & PR
+  function getPRs() { try { return JSON.parse(localStorage.getItem('gymPRs') || '{}'); } catch(e) { return {}; } }
+
+  function checkPR(input, id) {
+    const val = parseFloat(input.value);
+    if (!val || val <= 0) { input.classList.remove('pr'); document.getElementById('pr_'+id).textContent = ''; save(); return; }
+    const prs = getPRs();
+    const badge = document.getElementById('pr_'+id);
+    if (!prs[id] || val > prs[id]) {
+      prs[id] = val;
+      localStorage.setItem('gymPRs', JSON.stringify(prs));
+      input.classList.add('pr');
+      badge.textContent = '🏆 PR!';
+    } else {
+      input.classList.remove('pr');
+      badge.textContent = `best: ${prs[id]}`;
+    }
+    save();
+  }
 
   function save() {
     const data = {};
@@ -177,7 +270,18 @@
   function load() {
     try {
       const data = JSON.parse(localStorage.getItem('gymWeights') || '{}');
-      IDS.forEach(id => { const el = document.getElementById(id); if (el && data[id] !== undefined) el.value = data[id]; });
+      const prs = getPRs();
+      IDS.forEach(id => {
+        const el = document.getElementById(id);
+        if (el && data[id] !== undefined) {
+          el.value = data[id];
+          const badge = document.getElementById('pr_'+id);
+          if (data[id] && prs[id]) {
+            if (parseFloat(data[id]) >= prs[id]) { el.classList.add('pr'); badge.textContent = '🏆 PR!'; }
+            else badge.textContent = `best: ${prs[id]}`;
+          }
+        }
+      });
     } catch(e) {}
   }
 
@@ -188,44 +292,84 @@
     setTimeout(() => btn.textContent = 'SAVE WEIGHTS', 1500);
   }
 
-  function getWorkoutDays() {
-    try { return JSON.parse(localStorage.getItem('workoutDays') || '[]'); } catch(e) { return []; }
-  }
+  // WORKOUT LOG
+  function getWorkoutDays() { try { return JSON.parse(localStorage.getItem('workoutDays') || '[]'); } catch(e) { return []; } }
 
   function logWorkout() {
     const today = new Date().toISOString().split('T')[0];
     const days = getWorkoutDays();
-    if (!days.includes(today)) {
-      days.push(today);
-      localStorage.setItem('workoutDays', JSON.stringify(days));
-    }
+    if (!days.includes(today)) { days.push(today); localStorage.setItem('workoutDays', JSON.stringify(days)); }
     const btn = document.querySelector('.log-btn');
     btn.textContent = '✅ LOGGED!';
     setTimeout(() => btn.textContent = '✅ LOG TODAY\'S WORKOUT', 1500);
-    renderCalendar();
-    renderReport();
+    renderCalendar(); renderReport();
   }
 
+  // TIMER
+  function setPreset(s) {
+    selectedPreset = s;
+    timerSeconds = s;
+    timerRunning = false;
+    clearInterval(timerInterval);
+    document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('selected'));
+    event.target.classList.add('selected');
+    updateTimerDisplay();
+    document.getElementById('startStopBtn').textContent = 'START';
+    document.getElementById('timerDisplay').className = 'timer-display';
+  }
+
+  function updateTimerDisplay() {
+    const m = Math.floor(timerSeconds / 60);
+    const s = timerSeconds % 60;
+    document.getElementById('timerDisplay').textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
+  }
+
+  function startStop() {
+    if (timerRunning) {
+      clearInterval(timerInterval);
+      timerRunning = false;
+      document.getElementById('startStopBtn').textContent = 'START';
+      document.getElementById('timerDisplay').className = 'timer-display';
+    } else {
+      timerRunning = true;
+      document.getElementById('startStopBtn').textContent = 'STOP';
+      document.getElementById('timerDisplay').className = 'timer-display running';
+      timerInterval = setInterval(() => {
+        timerSeconds--;
+        updateTimerDisplay();
+        if (timerSeconds <= 0) {
+          clearInterval(timerInterval);
+          timerRunning = false;
+          document.getElementById('timerDisplay').className = 'timer-display done';
+          document.getElementById('timerDisplay').textContent = 'GO! 💪';
+          document.getElementById('startStopBtn').textContent = 'START';
+          if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
+        }
+      }, 1000);
+    }
+  }
+
+  function resetTimer() {
+    clearInterval(timerInterval);
+    timerRunning = false;
+    timerSeconds = selectedPreset;
+    updateTimerDisplay();
+    document.getElementById('startStopBtn').textContent = 'START';
+    document.getElementById('timerDisplay').className = 'timer-display';
+  }
+
+  // CALENDAR
   function renderCalendar() {
     const days = getWorkoutDays();
     const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
     document.getElementById('calMonth').textContent = `${months[currentMonth]} ${currentYear}`;
     const grid = document.getElementById('calGrid');
     grid.innerHTML = '';
-    ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(d => {
-      const el = document.createElement('div');
-      el.className = 'cal-day-label';
-      el.textContent = d;
-      grid.appendChild(el);
-    });
+    ['Su','Mo','Tu','We','Th','Fr','Sa'].forEach(d => { const el = document.createElement('div'); el.className = 'cal-day-label'; el.textContent = d; grid.appendChild(el); });
     const firstDay = new Date(currentYear, currentMonth, 1).getDay();
     const daysInMonth = new Date(currentYear, currentMonth + 1, 0).getDate();
     const today = new Date().toISOString().split('T')[0];
-    for (let i = 0; i < firstDay; i++) {
-      const el = document.createElement('div');
-      el.className = 'cal-day empty';
-      grid.appendChild(el);
-    }
+    for (let i = 0; i < firstDay; i++) { const el = document.createElement('div'); el.className = 'cal-day empty'; grid.appendChild(el); }
     for (let d = 1; d <= daysInMonth; d++) {
       const el = document.createElement('div');
       const dateStr = `${currentYear}-${String(currentMonth+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
@@ -242,6 +386,7 @@
     renderCalendar();
   }
 
+  // REPORT
   function renderReport() {
     const days = getWorkoutDays();
     const today = new Date();
@@ -252,8 +397,7 @@
     const barEl = document.getElementById('rWeekBar');
     barEl.innerHTML = '';
     for (let i = 0; i < 7; i++) {
-      const d = new Date(weekStart);
-      d.setDate(weekStart.getDate() + i);
+      const d = new Date(weekStart); d.setDate(weekStart.getDate() + i);
       const dateStr = d.toISOString().split('T')[0];
       const worked = days.includes(dateStr);
       if (worked) weekCount++;
@@ -275,9 +419,72 @@
     document.getElementById('rStreak').textContent = `${streak} day${streak !== 1 ? 's' : ''}`;
   }
 
+  // BODY WEIGHT
+  function getWeights() { try { return JSON.parse(localStorage.getItem('bodyWeights') || '[]'); } catch(e) { return []; } }
+
+  function logWeight() {
+    const val = parseFloat(document.getElementById('bwInput').value);
+    if (!val) return;
+    const weights = getWeights();
+    weights.unshift({ date: new Date().toLocaleDateString(), val });
+    if (weights.length > 10) weights.pop();
+    localStorage.setItem('bodyWeights', JSON.stringify(weights));
+    document.getElementById('bwInput').value = '';
+    renderWeights();
+  }
+
+  function renderWeights() {
+    const weights = getWeights();
+    const list = document.getElementById('bwList');
+    list.innerHTML = '';
+    weights.forEach((w, i) => {
+      const li = document.createElement('li');
+      li.className = 'bw-item';
+      let changeHtml = '';
+      if (i < weights.length - 1) {
+        const diff = (w.val - weights[i+1].val).toFixed(1);
+        const cls = diff > 0 ? 'up' : 'down';
+        const sign = diff > 0 ? '+' : '';
+        changeHtml = `<span class="bw-change ${cls}">${sign}${diff} lb</span>`;
+      }
+      li.innerHTML = `<span class="bw-date">${w.date}</span><span class="bw-val">${w.val} lb ${changeHtml}</span>`;
+      list.appendChild(li);
+    });
+  }
+
+  // PHOTO REMINDER
+  function checkPhotoReminder() {
+    const last = localStorage.getItem('lastPhoto');
+    const now = new Date();
+    const msg = document.getElementById('photoMsg');
+    const done = document.getElementById('photoDone');
+    if (last) {
+      const lastDate = new Date(last);
+      const daysSince = Math.floor((now - lastDate) / (1000 * 60 * 60 * 24));
+      if (daysSince >= 30) {
+        msg.textContent = `⚠️ It's been ${daysSince} days since your last progress photo! Time to take one.`;
+      } else {
+        msg.textContent = `✅ Last photo taken ${daysSince} days ago. Next one in ${30 - daysSince} days.`;
+      }
+      done.textContent = `Last taken: ${lastDate.toLocaleDateString()}`;
+    }
+  }
+
+  function markPhotoTaken() {
+    localStorage.setItem('lastPhoto', new Date().toISOString());
+    checkPhotoReminder();
+    const btn = document.querySelector('.photo-btn');
+    btn.textContent = '✅ LOGGED!';
+    setTimeout(() => btn.textContent = '📸 MARK PHOTO TAKEN', 2000);
+  }
+
+  // INIT
   load();
   renderCalendar();
   renderReport();
+  renderWeights();
+  checkPhotoReminder();
+  updateTimerDisplay();
 </script>
 </body>
 </html>
