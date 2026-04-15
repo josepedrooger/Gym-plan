@@ -22,13 +22,14 @@
   .exercise-row:hover { background: #1a1a1a; }
   .exercise-name { font-size: 0.88rem; color: #ddd; font-weight: 500; }
   .sets-badge { color: #e63946; font-weight: 700; font-size: 0.8rem; white-space: nowrap; background: #1e1e1e; padding: 4px 10px; border-radius: 8px; border: 1px solid #2a2a2a; }
-  .weight-input-wrap { display: flex; align-items: center; gap: 5px; flex-direction: column; align-items: flex-end; }
+  .weight-input-wrap { display: flex; align-items: flex-end; gap: 5px; flex-direction: column; }
   .weight-input { width: 64px; background: #111; border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 0.82rem; font-family: 'DM Sans', sans-serif; padding: 5px 8px; text-align: center; outline: none; transition: border-color 0.2s; }
   .weight-input:focus { border-color: #e63946; }
   .weight-input::placeholder { color: #444; }
-  .weight-input.pr { border-color: #f4a261; background: #1a1000; }
   .weight-label { font-size: 0.72rem; color: #555; min-width: 16px; }
-  .pr-badge { font-size: 0.6rem; color: #f4a261; font-weight: 700; letter-spacing: 0.5px; }
+  .last-week { font-size: 0.62rem; color: #555; white-space: nowrap; }
+  .last-week.up { color: #2a9d8f; }
+  .last-week.down { color: #e63946; }
   .tips-card { background: #161616; border: 1px solid #222; border-left: 3px solid #f4a261; border-radius: 14px; padding: 18px; margin-top: 8px; }
   .tips-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1.5px; color: #f4a261; margin-bottom: 12px; }
   .tip { display: flex; gap: 10px; padding: 8px 0; border-bottom: 1px solid #1e1e1e; font-size: 0.85rem; color: #bbb; align-items: flex-start; }
@@ -40,33 +41,18 @@
   .log-btn:active { transform: scale(0.98); background: #21867a; }
   .save-notice { text-align: center; font-size: 0.75rem; color: #555; margin-top: 10px; letter-spacing: 0.5px; }
   .section-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.5rem; letter-spacing: 2px; color: #fff; margin: 32px 0 16px; }
-
-  /* REST TIMER */
-  .timer-card { background: #161616; border-radius: 14px; padding: 20px 18px; border: 1px solid #222; margin-bottom: 20px; text-align: center; }
-  .timer-display { font-family: 'Bebas Neue', sans-serif; font-size: 4rem; color: #fff; letter-spacing: 4px; line-height: 1; margin: 12px 0; }
-  .timer-display.running { color: #e63946; }
-  .timer-display.done { color: #2a9d8f; }
-  .timer-btns { display: flex; gap: 10px; justify-content: center; margin-top: 12px; }
-  .timer-btn { background: #1e1e1e; border: 1px solid #333; color: #fff; font-family: 'Bebas Neue', sans-serif; font-size: 0.9rem; letter-spacing: 1px; padding: 10px 18px; border-radius: 10px; cursor: pointer; transition: background 0.15s; }
-  .timer-btn.active { background: #e63946; border-color: #e63946; }
-  .timer-btn:hover { background: #2a2a2a; }
-  .timer-presets { display: flex; gap: 8px; justify-content: center; margin-bottom: 8px; }
-  .preset-btn { background: #1a1a1a; border: 1px solid #2a2a2a; color: #888; font-size: 0.78rem; padding: 6px 14px; border-radius: 20px; cursor: pointer; transition: all 0.15s; }
-  .preset-btn.selected { background: #e63946; border-color: #e63946; color: #fff; }
-
-  /* CALENDAR */
   .calendar-card { background: #161616; border-radius: 14px; padding: 18px; border: 1px solid #222; margin-bottom: 20px; }
   .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
   .cal-month { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 1px; color: #fff; }
   .cal-nav { background: #1e1e1e; border: 1px solid #333; color: #fff; border-radius: 8px; padding: 4px 12px; cursor: pointer; font-size: 1rem; }
   .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
   .cal-day-label { text-align: center; font-size: 0.7rem; color: #555; padding: 4px 0; font-weight: 600; }
-  .cal-day { aspect-ratio: 1; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; background: #1a1a1a; cursor: pointer; transition: all 0.15s; }
+  .cal-day { aspect-ratio: 1; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; background: #1a1a1a; }
   .cal-day.today { border: 1px solid #e63946; color: #fff; }
   .cal-day.worked-out { background: #e63946; color: #fff; font-weight: 700; }
-  .cal-day.empty { background: transparent; cursor: default; }
-
-  /* WEEKLY REPORT */
+  .cal-day.empty { background: transparent; }
+  .cal-legend { display: flex; gap: 16px; margin-top: 12px; font-size: 0.75rem; color: #666; }
+  .cal-legend-dot { width: 12px; height: 12px; border-radius: 4px; display: inline-block; margin-right: 4px; }
   .report-card { background: #161616; border-radius: 14px; padding: 18px; border: 1px solid #222; margin-bottom: 20px; }
   .report-row { display: flex; justify-content: space-between; align-items: center; padding: 10px 0; border-bottom: 1px solid #1e1e1e; font-size: 0.88rem; }
   .report-row:last-child { border-bottom: none; }
@@ -76,8 +62,6 @@
   .streak-bar { display: flex; gap: 6px; margin-top: 12px; }
   .streak-dot { width: 32px; height: 32px; border-radius: 8px; background: #1a1a1a; display: flex; align-items: center; justify-content: center; font-size: 0.7rem; color: #555; flex: 1; }
   .streak-dot.active { background: #e63946; color: #fff; font-weight: 700; }
-
-  /* BODY WEIGHT */
   .bw-card { background: #161616; border-radius: 14px; padding: 18px; border: 1px solid #222; margin-bottom: 20px; }
   .bw-input-row { display: flex; gap: 10px; align-items: center; margin-bottom: 16px; }
   .bw-input { flex: 1; background: #111; border: 1px solid #333; border-radius: 8px; color: #fff; font-size: 0.95rem; font-family: 'DM Sans', sans-serif; padding: 10px 14px; outline: none; transition: border-color 0.2s; }
@@ -90,8 +74,6 @@
   .bw-val { color: #fff; font-weight: 600; }
   .bw-change.up { color: #e63946; }
   .bw-change.down { color: #2a9d8f; }
-
-  /* PHOTO REMINDER */
   .photo-card { background: #161616; border-radius: 14px; padding: 18px; border: 1px solid #222; margin-bottom: 20px; text-align: center; }
   .photo-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.1rem; letter-spacing: 1.5px; color: #f4a261; margin-bottom: 8px; }
   .photo-msg { font-size: 0.85rem; color: #bbb; margin-bottom: 14px; line-height: 1.5; }
@@ -109,52 +91,60 @@
 <!-- DAY 1 -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Day 1 — Chest + Triceps</span><span class="day-tag">Monday</span></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Flat Bench Press</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e1" oninput="checkPR(this,'e1')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e1"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Incline Press</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e2" oninput="checkPR(this,'e2')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e2"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Chest Fly</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e3" oninput="checkPR(this,'e3')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e3"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Machine Chest Press</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e4" oninput="checkPR(this,'e4')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e4"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Tricep Pushdown</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e5" oninput="checkPR(this,'e5')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e5"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Overhead Cable Tricep Extension</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e6" oninput="checkPR(this,'e6')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e6"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Flat Bench Press</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e1" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e1"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Incline Press</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e2" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e2"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Chest Fly</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e3" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e3"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Machine Chest Press</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e4" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e4"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Tricep Pushdown</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e5" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e5"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Overhead Cable Tricep Extension</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e6" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e6"></span></div></div>
 </div>
 
 <!-- DAY 2 -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Day 2 — Back + Biceps</span><span class="day-tag">Tuesday</span></div>
-  <div class="exercise-row"><span class="exercise-name">Lat Pulldown</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e7" oninput="checkPR(this,'e7')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e7"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Seated Cable Row</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e8" oninput="checkPR(this,'e8')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e8"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Bent-Over Row</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e9" oninput="checkPR(this,'e9')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e9"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Face Pulls</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e10" oninput="checkPR(this,'e10')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e10"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Bicep Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e11" oninput="checkPR(this,'e11')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e11"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Hammer Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e12" oninput="checkPR(this,'e12')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e12"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Lat Pulldown</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e7" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e7"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Seated Cable Row</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e8" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e8"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Bent-Over Row</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e9" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e9"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Rear Delt Fly</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e10" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e10"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Bicep Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e11" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e11"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Hammer Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e12" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e12"></span></div></div>
 </div>
 
 <!-- DAY 3 -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Day 3 — Legs</span><span class="day-tag">Thursday</span></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Romanian Deadlift</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e13" oninput="checkPR(this,'e13')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e13"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Goblet Squat</span><span class="sets-badge">4 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e14" oninput="checkPR(this,'e14')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e14"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Step-Ups</span><span class="sets-badge">4 × 12 each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e15" oninput="checkPR(this,'e15')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e15"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Walking Lunges</span><span class="sets-badge">3 × 12 each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e16" oninput="checkPR(this,'e16')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e16"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Stair Climber (cooldown)</span><span class="sets-badge">10 min</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e17" oninput="checkPR(this,'e17')"><span class="weight-label">lvl</span><span class="pr-badge" id="pr_e17"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Romanian Deadlift</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e13" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e13"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Goblet Squat</span><span class="sets-badge">4 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e14" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e14"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Step-Ups</span><span class="sets-badge">4 × 12 each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e15" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e15"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Walking Lunges</span><span class="sets-badge">3 × 12 each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e16" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e16"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Stair Climber (cooldown)</span><span class="sets-badge">10 min</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e17" oninput="save()"><span class="weight-label">lvl</span><span class="last-week" id="lw_e17"></span></div></div>
 </div>
 
 <!-- DAY 4 -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Day 4 — Shoulders + Arms</span><span class="day-tag">Saturday</span></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Shoulder Press</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e18" oninput="checkPR(this,'e18')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e18"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Lateral Raises</span><span class="sets-badge">4 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e19" oninput="checkPR(this,'e19')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e19"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Front Raises</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e20" oninput="checkPR(this,'e20')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e20"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Rear Delt Fly</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e21" oninput="checkPR(this,'e21')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e21"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Bicep Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e22" oninput="checkPR(this,'e22')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e22"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Dumbbell Skull Crushers</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e23" oninput="checkPR(this,'e23')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e23"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Shoulder Press</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e18" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e18"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Lateral Raises</span><span class="sets-badge">4 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e19" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e19"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Front Raises</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e20" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e20"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Rear Delt Fly</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e21" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e21"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Bicep Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e22" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e22"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Skull Crushers</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e23" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e23"></span></div></div>
 </div>
 
 <!-- ABS -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Abs — End of Every Session</span><span class="day-tag">3x/week</span></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Crunches</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e24" oninput="checkPR(this,'e24')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e24"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Hanging Knee Raises</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e25" oninput="checkPR(this,'e25')"><span class="weight-label">lb</span><span class="pr-badge" id="pr_e25"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Plank</span><span class="sets-badge">3 × 45 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e26" oninput="checkPR(this,'e26')"><span class="weight-label">sec</span><span class="pr-badge" id="pr_e26"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cable Crunches</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e24" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e24"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Hanging Knee Raises</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e25" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e25"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Plank</span><span class="sets-badge">3 × 45 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e26" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e26"></span></div></div>
+</div>
+
+<!-- FOREARMS -->
+<div class="day-card">
+  <div class="day-header"><span class="day-title">Forearms — End of Arm Days</span><span class="day-tag">2x/week</span></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Wrist Curls</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e27" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e27"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dumbbell Reverse Wrist Curls</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e28" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e28"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Farmer's Carry</span><span class="sets-badge">3 × 30 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e29" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e29"></span></div></div>
 </div>
 
 <!-- TIPS -->
@@ -176,22 +166,6 @@
 <button class="log-btn" onclick="logWorkout()">✅ LOG TODAY'S WORKOUT</button>
 <p class="save-notice">Weights auto-save as you type · stored in your browser</p>
 
-<!-- REST TIMER -->
-<div class="section-title">⏱ Rest Timer</div>
-<div class="timer-card">
-  <div class="timer-presets">
-    <button class="preset-btn selected" onclick="setPreset(60)">60s</button>
-    <button class="preset-btn" onclick="setPreset(75)">75s</button>
-    <button class="preset-btn" onclick="setPreset(90)">90s</button>
-    <button class="preset-btn" onclick="setPreset(120)">2min</button>
-  </div>
-  <div class="timer-display" id="timerDisplay">01:00</div>
-  <div class="timer-btns">
-    <button class="timer-btn active" id="startStopBtn" onclick="startStop()">START</button>
-    <button class="timer-btn" onclick="resetTimer()">RESET</button>
-  </div>
-</div>
-
 <!-- CALENDAR -->
 <div class="section-title">📅 Workout Calendar</div>
 <div class="calendar-card">
@@ -201,6 +175,10 @@
     <button class="cal-nav" onclick="changeMonth(1)">›</button>
   </div>
   <div class="cal-grid" id="calGrid"></div>
+  <div class="cal-legend">
+    <span><span class="cal-legend-dot" style="background:#e63946;"></span>Worked out</span>
+    <span><span class="cal-legend-dot" style="border:1px solid #e63946;"></span>Today</span>
+  </div>
 </div>
 
 <!-- WEEKLY REPORT -->
@@ -233,66 +211,68 @@
 </div>
 
 <script>
-  const IDS = Array.from({length: 26}, (_, i) => `e${i+1}`);
+  const IDS = Array.from({length: 29}, (_, i) => `e${i+1}`);
   let currentMonth = new Date().getMonth();
   let currentYear = new Date().getFullYear();
-  let timerInterval = null;
-  let timerSeconds = 60;
-  let timerRunning = false;
-  let selectedPreset = 60;
-
-  // WEIGHTS & PR
-  function getPRs() { try { return JSON.parse(localStorage.getItem('gymPRs') || '{}'); } catch(e) { return {}; } }
-
-  function checkPR(input, id) {
-    const val = parseFloat(input.value);
-    if (!val || val <= 0) { input.classList.remove('pr'); document.getElementById('pr_'+id).textContent = ''; save(); return; }
-    const prs = getPRs();
-    const badge = document.getElementById('pr_'+id);
-    if (!prs[id] || val > prs[id]) {
-      prs[id] = val;
-      localStorage.setItem('gymPRs', JSON.stringify(prs));
-      input.classList.add('pr');
-      badge.textContent = '🏆 PR!';
-    } else {
-      input.classList.remove('pr');
-      badge.textContent = `best: ${prs[id]}`;
-    }
-    save();
-  }
 
   function save() {
     const data = {};
     IDS.forEach(id => { const el = document.getElementById(id); if (el) data[id] = el.value; });
     try { localStorage.setItem('gymWeights', JSON.stringify(data)); } catch(e) {}
+    renderLastWeek();
   }
 
   function load() {
     try {
       const data = JSON.parse(localStorage.getItem('gymWeights') || '{}');
-      const prs = getPRs();
-      IDS.forEach(id => {
-        const el = document.getElementById(id);
-        if (el && data[id] !== undefined) {
-          el.value = data[id];
-          const badge = document.getElementById('pr_'+id);
-          if (data[id] && prs[id]) {
-            if (parseFloat(data[id]) >= prs[id]) { el.classList.add('pr'); badge.textContent = '🏆 PR!'; }
-            else badge.textContent = `best: ${prs[id]}`;
-          }
-        }
-      });
+      IDS.forEach(id => { const el = document.getElementById(id); if (el && data[id] !== undefined) el.value = data[id]; });
     } catch(e) {}
   }
 
   function saveManual() {
-    save();
+    const data = {};
+    IDS.forEach(id => { const el = document.getElementById(id); if (el) data[id] = el.value; });
+    try {
+      localStorage.setItem('gymWeights', JSON.stringify(data));
+      const snapshots = JSON.parse(localStorage.getItem('gymSnapshots') || '[]');
+      snapshots.unshift({ date: new Date().toISOString(), weights: data });
+      if (snapshots.length > 10) snapshots.pop();
+      localStorage.setItem('gymSnapshots', JSON.stringify(snapshots));
+    } catch(e) {}
     const btn = document.querySelector('.save-btn');
     btn.textContent = '✓ SAVED!';
-    setTimeout(() => btn.textContent = 'SAVE WEIGHTS', 1500);
+    setTimeout(() => { btn.textContent = 'SAVE WEIGHTS'; renderLastWeek(); }, 1500);
   }
 
-  // WORKOUT LOG
+  function getLastWeekSnapshot() {
+    try {
+      const snapshots = JSON.parse(localStorage.getItem('gymSnapshots') || '[]');
+      if (!snapshots.length) return null;
+      const now = new Date();
+      for (let s of snapshots) {
+        const diff = (now - new Date(s.date)) / (1000 * 60 * 60 * 24);
+        if (diff >= 5) return s.weights;
+      }
+      return snapshots[snapshots.length - 1].weights;
+    } catch(e) { return null; }
+  }
+
+  function renderLastWeek() {
+    const lastWeek = getLastWeekSnapshot();
+    const current = {};
+    IDS.forEach(id => { const el = document.getElementById(id); if (el) current[id] = parseFloat(el.value) || 0; });
+    IDS.forEach(id => {
+      const badge = document.getElementById('lw_' + id);
+      if (!badge) return;
+      if (!lastWeek || !lastWeek[id] || parseFloat(lastWeek[id]) === 0) { badge.textContent = ''; return; }
+      const prev = parseFloat(lastWeek[id]);
+      const curr = current[id];
+      if (curr > prev) { badge.className = 'last-week up'; badge.textContent = `↑ was ${prev}`; }
+      else if (curr < prev && curr > 0) { badge.className = 'last-week down'; badge.textContent = `↓ was ${prev}`; }
+      else { badge.className = 'last-week'; badge.textContent = `last: ${prev}`; }
+    });
+  }
+
   function getWorkoutDays() { try { return JSON.parse(localStorage.getItem('workoutDays') || '[]'); } catch(e) { return []; } }
 
   function logWorkout() {
@@ -305,60 +285,6 @@
     renderCalendar(); renderReport();
   }
 
-  // TIMER
-  function setPreset(s) {
-    selectedPreset = s;
-    timerSeconds = s;
-    timerRunning = false;
-    clearInterval(timerInterval);
-    document.querySelectorAll('.preset-btn').forEach(b => b.classList.remove('selected'));
-    event.target.classList.add('selected');
-    updateTimerDisplay();
-    document.getElementById('startStopBtn').textContent = 'START';
-    document.getElementById('timerDisplay').className = 'timer-display';
-  }
-
-  function updateTimerDisplay() {
-    const m = Math.floor(timerSeconds / 60);
-    const s = timerSeconds % 60;
-    document.getElementById('timerDisplay').textContent = `${String(m).padStart(2,'0')}:${String(s).padStart(2,'0')}`;
-  }
-
-  function startStop() {
-    if (timerRunning) {
-      clearInterval(timerInterval);
-      timerRunning = false;
-      document.getElementById('startStopBtn').textContent = 'START';
-      document.getElementById('timerDisplay').className = 'timer-display';
-    } else {
-      timerRunning = true;
-      document.getElementById('startStopBtn').textContent = 'STOP';
-      document.getElementById('timerDisplay').className = 'timer-display running';
-      timerInterval = setInterval(() => {
-        timerSeconds--;
-        updateTimerDisplay();
-        if (timerSeconds <= 0) {
-          clearInterval(timerInterval);
-          timerRunning = false;
-          document.getElementById('timerDisplay').className = 'timer-display done';
-          document.getElementById('timerDisplay').textContent = 'GO! 💪';
-          document.getElementById('startStopBtn').textContent = 'START';
-          if (navigator.vibrate) navigator.vibrate([200, 100, 200]);
-        }
-      }, 1000);
-    }
-  }
-
-  function resetTimer() {
-    clearInterval(timerInterval);
-    timerRunning = false;
-    timerSeconds = selectedPreset;
-    updateTimerDisplay();
-    document.getElementById('startStopBtn').textContent = 'START';
-    document.getElementById('timerDisplay').className = 'timer-display';
-  }
-
-  // CALENDAR
   function renderCalendar() {
     const days = getWorkoutDays();
     const months = ['January','February','March','April','May','June','July','August','September','October','November','December'];
@@ -386,7 +312,6 @@
     renderCalendar();
   }
 
-  // REPORT
   function renderReport() {
     const days = getWorkoutDays();
     const today = new Date();
@@ -409,8 +334,8 @@
     document.getElementById('rWorkouts').textContent = weekCount;
     document.getElementById('rTotal').textContent = days.length;
     let streak = 0;
-    const sorted = [...days].sort().reverse();
     let check = new Date();
+    const sorted = [...days].sort().reverse();
     for (let i = 0; i < 60; i++) {
       const dateStr = check.toISOString().split('T')[0];
       if (sorted.includes(dateStr)) { streak++; } else if (i > 0) { break; }
@@ -419,7 +344,6 @@
     document.getElementById('rStreak').textContent = `${streak} day${streak !== 1 ? 's' : ''}`;
   }
 
-  // BODY WEIGHT
   function getWeights() { try { return JSON.parse(localStorage.getItem('bodyWeights') || '[]'); } catch(e) { return []; } }
 
   function logWeight() {
@@ -452,7 +376,6 @@
     });
   }
 
-  // PHOTO REMINDER
   function checkPhotoReminder() {
     const last = localStorage.getItem('lastPhoto');
     const now = new Date();
@@ -461,11 +384,8 @@
     if (last) {
       const lastDate = new Date(last);
       const daysSince = Math.floor((now - lastDate) / (1000 * 60 * 60 * 24));
-      if (daysSince >= 30) {
-        msg.textContent = `⚠️ It's been ${daysSince} days since your last progress photo! Time to take one.`;
-      } else {
-        msg.textContent = `✅ Last photo taken ${daysSince} days ago. Next one in ${30 - daysSince} days.`;
-      }
+      if (daysSince >= 30) { msg.textContent = `⚠️ It's been ${daysSince} days since your last progress photo! Time to take one.`; }
+      else { msg.textContent = `✅ Last photo taken ${daysSince} days ago. Next one in ${30 - daysSince} days.`; }
       done.textContent = `Last taken: ${lastDate.toLocaleDateString()}`;
     }
   }
@@ -478,13 +398,12 @@
     setTimeout(() => btn.textContent = '📸 MARK PHOTO TAKEN', 2000);
   }
 
-  // INIT
   load();
+  renderLastWeek();
   renderCalendar();
   renderReport();
   renderWeights();
   checkPhotoReminder();
-  updateTimerDisplay();
 </script>
 </body>
 </html>
