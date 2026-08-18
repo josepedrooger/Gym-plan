@@ -48,14 +48,17 @@
   .cal-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 16px; }
   .cal-month { font-family: 'Bebas Neue', sans-serif; font-size: 1.2rem; letter-spacing: 1px; color: #fff; }
   .cal-nav { background: #1e1e1e; border: 1px solid #333; color: #fff; border-radius: 8px; padding: 4px 12px; cursor: pointer; font-size: 1rem; }
+  .cal-hint { font-size: 0.7rem; color: #444; text-align: center; margin-bottom: 10px; }
   .cal-grid { display: grid; grid-template-columns: repeat(7, 1fr); gap: 4px; }
   .cal-day-label { text-align: center; font-size: 0.7rem; color: #555; padding: 4px 0; font-weight: 600; }
-  .cal-day { aspect-ratio: 1; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; background: #1a1a1a; }
+  .cal-day { aspect-ratio: 1; border-radius: 8px; display: flex; align-items: center; justify-content: center; font-size: 0.8rem; color: #666; background: #1a1a1a; cursor: pointer; user-select: none; transition: transform 0.1s, background 0.15s; border: 1px solid transparent; }
+  .cal-day:hover { background: #232323; }
+  .cal-day:active { transform: scale(0.92); }
   .cal-day.today { border: 1px solid #e63946; color: #fff; }
   .cal-day.worked-out { background: #e63946; color: #fff; font-weight: 700; }
   .cal-day.bjj-day { background: #6a0572; color: #fff; font-weight: 700; }
   .cal-day.run-day { background: #e07b00; color: #fff; font-weight: 700; }
-  .cal-day.empty { background: transparent; }
+  .cal-day.empty { background: transparent; cursor: default; }
   .cal-legend { display: flex; gap: 16px; margin-top: 12px; font-size: 0.75rem; color: #666; flex-wrap: wrap; }
   .cal-legend-dot { width: 12px; height: 12px; border-radius: 4px; display: inline-block; margin-right: 4px; }
   .report-card { background: #161616; border-radius: 14px; padding: 18px; border: 1px solid #222; margin-bottom: 20px; }
@@ -102,7 +105,7 @@
   <div class="day-header"><span class="day-title">Day 1 — Chest + Triceps</span><span class="day-tag">Monday</span></div>
   <div class="exercise-row"><span class="exercise-name">Dumbbell Flat Bench Press</span><span class="sets-badge">4 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e1" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e1"></span></div></div>
   <div class="exercise-row"><span class="exercise-name">Dumbbell Incline Press</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e2" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e2"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Chest Fly</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e3" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e3"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Dips</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e3" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e3"></span></div></div>
   <div class="exercise-row"><span class="exercise-name">Machine Chest Press</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e4" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e4"></span></div></div>
   <div class="exercise-row"><span class="exercise-name">Pec Deck Fly</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e5" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e5"></span></div></div>
   <div class="exercise-row"><span class="exercise-name">Cable Tricep Pushdown</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e6" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e6"></span></div></div>
@@ -189,6 +192,7 @@
     <span class="cal-month" id="calMonth_gym"></span>
     <button class="cal-nav" onclick="changeMonth('gym',1)">›</button>
   </div>
+  <div class="cal-hint">Tap a day to toggle it</div>
   <div class="cal-grid" id="calGrid_gym"></div>
   <div class="cal-legend">
     <span><span class="cal-legend-dot" style="background:#e63946;"></span>Gym day</span>
@@ -204,6 +208,7 @@
     <span class="cal-month" id="calMonth_bjj"></span>
     <button class="cal-nav" onclick="changeMonth('bjj',1)">›</button>
   </div>
+  <div class="cal-hint">Tap a day to toggle it</div>
   <div class="cal-grid" id="calGrid_bjj"></div>
   <div class="cal-legend">
     <span><span class="cal-legend-dot" style="background:#6a0572;"></span>BJJ day</span>
@@ -219,6 +224,7 @@
     <span class="cal-month" id="calMonth_run"></span>
     <button class="cal-nav" onclick="changeMonth('run',1)">›</button>
   </div>
+  <div class="cal-hint">Tap a day to toggle it</div>
   <div class="cal-grid" id="calGrid_run"></div>
   <div class="cal-legend">
     <span><span class="cal-legend-dot" style="background:#e07b00;"></span>Run day</span>
@@ -321,15 +327,26 @@
   }
 
   function getDays(type) { try { return JSON.parse(localStorage.getItem(storageKeys[type]) || '[]'); } catch(e) { return []; } }
+  function setDays(type, days) { try { localStorage.setItem(storageKeys[type], JSON.stringify(days)); } catch(e) {} }
 
   function logWorkout(type) {
     const today = new Date().toISOString().split('T')[0];
     const days = getDays(type);
-    if (!days.includes(today)) { days.push(today); localStorage.setItem(storageKeys[type], JSON.stringify(days)); }
+    if (!days.includes(today)) { days.push(today); setDays(type, days); }
     const btns = { gym: '🏋️ LOG TODAY\'S GYM', bjj: '🥋 LOG TODAY\'S BJJ', run: '🏃 LOG TODAY\'S RUN' };
     const btn = document.querySelectorAll('.log-btn')[['gym','bjj','run'].indexOf(type)];
     btn.textContent = '✅ LOGGED!';
     setTimeout(() => btn.textContent = btns[type], 1500);
+    renderCalendar(type);
+    renderReport();
+  }
+
+  // Toggle a specific date on/off for a given type by clicking its calendar cell
+  function toggleDay(type, dateStr) {
+    const days = getDays(type);
+    const idx = days.indexOf(dateStr);
+    if (idx === -1) { days.push(dateStr); } else { days.splice(idx, 1); }
+    setDays(type, days);
     renderCalendar(type);
     renderReport();
   }
@@ -351,6 +368,7 @@
       const dateStr = `${state.year}-${String(state.month+1).padStart(2,'0')}-${String(d).padStart(2,'0')}`;
       el.className = 'cal-day' + (days.includes(dateStr) ? ` ${calColors[type]}` : '') + (dateStr === today ? ' today' : '');
       el.textContent = d;
+      el.onclick = () => toggleDay(type, dateStr);
       grid.appendChild(el);
     }
   }
@@ -456,3 +474,5 @@
 </script>
 </body>
 </html>
+
+ 
