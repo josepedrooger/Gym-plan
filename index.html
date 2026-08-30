@@ -120,6 +120,7 @@
   <div class="exercise-row"><span class="exercise-name">Dumbbell Bent-Over Row</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e10" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e10"></span></div></div>
   <div class="exercise-row"><span class="exercise-name">Dumbbell Rear Delt Fly</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e11" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e11"></span></div></div>
   <div class="exercise-row"><span class="exercise-name">Dumbbell Bicep Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e12" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e12"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Preacher Curl</span><span class="sets-badge">3 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e34" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e34"></span></div></div>
   <div class="exercise-row"><span class="exercise-name">Cable Hammer Curl</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e13" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e13"></span></div></div>
   <div class="exercise-row"><span class="exercise-name">Dumbbell Shrugs</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e14" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e14"></span></div></div>
 </div>
@@ -149,9 +150,11 @@
 <!-- ABS -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Abs — End of Every Session</span><span class="day-tag">3x/week</span></div>
-  <div class="exercise-row"><span class="exercise-name">Cable Crunches</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e27" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e27"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Hanging Knee Raises</span><span class="sets-badge">3 × 12</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e28" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e28"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Plank</span><span class="sets-badge">3 × 45 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e29" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e29"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Isometric Hold</span><span class="sets-badge">2 × 30 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e35" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e35"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Shoulder Taps</span><span class="sets-badge">2 × 30</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e36" oninput="save()"><span class="weight-label">reps</span><span class="last-week" id="lw_e36"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Russian Twists</span><span class="sets-badge">2 × 100</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e37" oninput="save()"><span class="weight-label">reps</span><span class="last-week" id="lw_e37"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Suitcases</span><span class="sets-badge">2 × 50</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e38" oninput="save()"><span class="weight-label">reps</span><span class="last-week" id="lw_e38"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Plank</span><span class="sets-badge">2 × 45 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e39" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e39"></span></div></div>
 </div>
 
 <!-- FOREARMS -->
@@ -263,7 +266,7 @@
 </div>
 
 <script>
-  const IDS = Array.from({length: 33}, (_, i) => `e${i+1}`);
+  const IDS = [...Array.from({length: 33}, (_, i) => `e${i+1}`), 'e34', 'e35', 'e36', 'e37', 'e38', 'e39'];
   const calState = { gym: { month: new Date().getMonth(), year: new Date().getFullYear() }, bjj: { month: new Date().getMonth(), year: new Date().getFullYear() }, run: { month: new Date().getMonth(), year: new Date().getFullYear() } };
   const calColors = { gym: 'worked-out', bjj: 'bjj-day', run: 'run-day' };
   const storageKeys = { gym: 'workoutDays', bjj: 'bjjDays', run: 'runDays' };
@@ -474,5 +477,3 @@
 </script>
 </body>
 </html>
-
- 
