@@ -155,6 +155,7 @@
   <div class="exercise-row"><span class="exercise-name">Russian Twists</span><span class="sets-badge">2 × 100</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e37" oninput="save()"><span class="weight-label">reps</span><span class="last-week" id="lw_e37"></span></div></div>
   <div class="exercise-row"><span class="exercise-name">Suitcases</span><span class="sets-badge">2 × 50</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e38" oninput="save()"><span class="weight-label">reps</span><span class="last-week" id="lw_e38"></span></div></div>
   <div class="exercise-row"><span class="exercise-name">Plank</span><span class="sets-badge">2 × 60 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e39" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e39"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Lateral Plank</span><span class="sets-badge">2 × 60 sec each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e40" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e40"></span></div></div>
 </div>
 
 <!-- FOREARMS -->
@@ -266,7 +267,7 @@
 </div>
 
 <script>
-  const IDS = [...Array.from({length: 33}, (_, i) => `e${i+1}`), 'e34', 'e35', 'e36', 'e37', 'e38', 'e39'];
+  const IDS = [...Array.from({length: 33}, (_, i) => `e${i+1}`), 'e34', 'e35', 'e36', 'e37', 'e38', 'e39', 'e40'];
   const calState = { gym: { month: new Date().getMonth(), year: new Date().getFullYear() }, bjj: { month: new Date().getMonth(), year: new Date().getFullYear() }, run: { month: new Date().getMonth(), year: new Date().getFullYear() } };
   const calColors = { gym: 'worked-out', bjj: 'bjj-day', run: 'run-day' };
   const storageKeys = { gym: 'workoutDays', bjj: 'bjjDays', run: 'runDays' };
