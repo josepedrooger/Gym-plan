@@ -1,4 +1,3 @@
-I caught a duplicate entry in the Abs section (Lateral Plank got added twice by mistake) — let me fix that first.Fixed. Here's the clean, full code:```html
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -101,6 +100,19 @@ I caught a duplicate entry in the Abs section (Lateral Plank got added twice by 
   <p class="subtitle">4 Days/Week · Muscle Building · ~1 Hour</p>
 </header>
 
+<!-- FLEXIBILITY -->
+<div class="day-card">
+  <div class="day-header"><span class="day-title">Flexibility — For BJJ</span><span class="day-tag">Daily / Post-Roll</span></div>
+  <div class="exercise-row"><span class="exercise-name">90/90 Hip Switch</span><span class="sets-badge">2 × 8 each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e41" oninput="save()"><span class="weight-label">reps</span><span class="last-week" id="lw_e41"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Pigeon Stretch</span><span class="sets-badge">2 × 60 sec each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e42" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e42"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Frog Stretch</span><span class="sets-badge">2 × 60 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e43" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e43"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Butterfly Stretch</span><span class="sets-badge">2 × 60 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e44" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e44"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">World's Greatest Stretch</span><span class="sets-badge">2 × 5 each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e45" oninput="save()"><span class="weight-label">reps</span><span class="last-week" id="lw_e45"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Cat-Cow</span><span class="sets-badge">2 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e46" oninput="save()"><span class="weight-label">reps</span><span class="last-week" id="lw_e46"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Shoulder Dislocates (band/stick)</span><span class="sets-badge">2 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e47" oninput="save()"><span class="weight-label">reps</span><span class="last-week" id="lw_e47"></span></div></div>
+  <div class="exercise-row"><span class="exercise-name">Deep Squat Hold</span><span class="sets-badge">2 × 60 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e48" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e48"></span></div></div>
+</div>
+
 <!-- DAY 1 -->
 <div class="day-card">
   <div class="day-header"><span class="day-title">Day 1 — Chest + Triceps</span><span class="day-tag">Monday</span></div>
@@ -166,19 +178,6 @@ I caught a duplicate entry in the Abs section (Lateral Plank got added twice by 
   <div class="exercise-row"><span class="exercise-name">Dumbbell Reverse Wrist Curls</span><span class="sets-badge">3 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e31" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e31"></span></div></div>
   <div class="exercise-row"><span class="exercise-name">Farmer's Carry</span><span class="sets-badge">3 × 30 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e32" oninput="save()"><span class="weight-label">lb</span><span class="last-week" id="lw_e32"></span></div></div>
   <div class="exercise-row"><span class="exercise-name">Dead Hangs</span><span class="sets-badge">3 × 45 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e33" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e33"></span></div></div>
-</div>
-
-<!-- FLEXIBILITY -->
-<div class="day-card">
-  <div class="day-header"><span class="day-title">Flexibility — For BJJ</span><span class="day-tag">Daily / Post-Roll</span></div>
-  <div class="exercise-row"><span class="exercise-name">90/90 Hip Switch</span><span class="sets-badge">2 × 8 each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e41" oninput="save()"><span class="weight-label">reps</span><span class="last-week" id="lw_e41"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Pigeon Stretch</span><span class="sets-badge">2 × 60 sec each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e42" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e42"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Frog Stretch</span><span class="sets-badge">2 × 60 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e43" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e43"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Butterfly Stretch</span><span class="sets-badge">2 × 60 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e44" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e44"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">World's Greatest Stretch</span><span class="sets-badge">2 × 5 each</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e45" oninput="save()"><span class="weight-label">reps</span><span class="last-week" id="lw_e45"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Cat-Cow</span><span class="sets-badge">2 × 10</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e46" oninput="save()"><span class="weight-label">reps</span><span class="last-week" id="lw_e46"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Shoulder Dislocates (band/stick)</span><span class="sets-badge">2 × 15</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e47" oninput="save()"><span class="weight-label">reps</span><span class="last-week" id="lw_e47"></span></div></div>
-  <div class="exercise-row"><span class="exercise-name">Deep Squat Hold</span><span class="sets-badge">2 × 60 sec</span><div class="weight-input-wrap"><input class="weight-input" type="number" placeholder="0" id="e48" oninput="save()"><span class="weight-label">sec</span><span class="last-week" id="lw_e48"></span></div></div>
 </div>
 
 <!-- TIPS -->
@@ -491,4 +490,4 @@ I caught a duplicate entry in the Abs section (Lateral Plank got added twice by 
   checkPhotoReminder();
 </script>
 </body>
-</html> 
+</html>
